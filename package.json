@@ -1,0 +1,87 @@
+{
+  "name": "pi-anki",
+  "version": "0.1.0",
+  "description": "AnkiConnect tools and interactive card-forging workflows for Pi",
+  "type": "module",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.ts",
+      "default": "./index.ts"
+    },
+    "./anki-connect": {
+      "types": "./src/anki-connect.ts",
+      "import": "./src/anki-connect.ts",
+      "default": "./src/anki-connect.ts"
+    }
+  },
+  "license": "MIT",
+  "author": "Anders K. Pettersen",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "check": "npm run typecheck && npm test && npm pack --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staticaland/pi-anki.git"
+  },
+  "bugs": {
+    "url": "https://github.com/staticaland/pi-anki/issues"
+  },
+  "homepage": "https://github.com/staticaland/pi-anki#readme",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "anki",
+    "ankiconnect",
+    "flashcards",
+    "spaced-repetition",
+    "extension",
+    "llm"
+  ],
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  },
+  "files": [
+    "index.ts",
+    "src",
+    "skills",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "^0.84.3",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-ai": { "optional": true },
+    "@earendil-works/pi-coding-agent": { "optional": true },
+    "@earendil-works/pi-tui": { "optional": true },
+    "typebox": { "optional": true }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "0.84.3",
+    "@earendil-works/pi-coding-agent": "0.84.3",
+    "@earendil-works/pi-tui": "0.84.3",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "typebox": "1.3.3",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

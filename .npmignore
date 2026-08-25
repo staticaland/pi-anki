@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+__tests__/
+.github/
+tsconfig.json
+.git/
+.gitignore
