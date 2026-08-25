@@ -15,10 +15,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+
+      # Installs the toolchain from mise.toml. mise.lock is present, so the
+      # action installs with --locked and a missing entry fails the job.
+      - uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+
+      # mise-action caches tools, not npm packages; setup-node used to do this.
+      - uses: actions/cache@v4
         with:
-          node-version: 22
-          cache: npm
+          path: ~/.npm
+          key: npm-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-${{ runner.os }}-
+
       - run: npm ci
       - run: npm run typecheck
       - run: npm test

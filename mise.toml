@@ -1,0 +1,12 @@
+[settings]
+# Record exact versions and checksums in mise.lock.
+lockfile = true
+
+# Hold back releases published in the last 7 days.
+minimum_release_age = "7d"
+
+[tools]
+# Runtime for npm ci, the typecheck, the vitest suite, and `npm pack`.
+# The only place the Node version is declared; CI installs it via mise-action.
+# Must satisfy `engines.node` in package.json (">=20").
+node = "22.23.2"
