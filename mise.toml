@@ -8,5 +8,6 @@ minimum_release_age = "7d"
 [tools]
 # Runtime for npm ci, the typecheck, the vitest suite, and `npm pack`.
 # The only place the Node version is declared; CI installs it via mise-action.
+# Node 24 is the Active LTS line and bundles npm 11.x.
 # Must satisfy `engines.node` in package.json (">=20").
-node = "22.23.2"
+node = "24.19.0"
