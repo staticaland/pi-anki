@@ -107,9 +107,14 @@ The package also ships the `anki-flashcards` skill. It helps Pi turn larger sour
 
 ## Development
 
+The toolchain is pinned in `mise.toml`. With [mise](https://mise.jdx.dev/)
+installed, `mise install` provides the Node version this project builds and
+tests against; without it, use a Node matching `engines.node` in `package.json`.
+
 ```bash
 git clone https://github.com/staticaland/pi-anki.git
 cd pi-anki
+mise install
 npm install
 npm run check
 ```
